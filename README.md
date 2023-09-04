@@ -1,3 +1,11 @@
+npm install @angular/material@10.2.2
+ng new <proj-name>
+cd <porj-name>
+npm install @angular/material@^10.1.2
+ng add @angular/material
+stop ng serve and do ---> npm install
+added button module --- even though red line when importing MatButtonModule, able to see button
+
 # Angular10Proj
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.2.
