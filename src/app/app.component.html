@@ -1,0 +1,25 @@
+<div class="containerWrapperEle">
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav mode="side" opened class="bg-info">
+      <mat-toolbar color="primary">
+        <mat-toolbar-row>
+          <span [routerLink]="['tabs']">Tabs</span>
+        </mat-toolbar-row>
+        <mat-toolbar-row>
+          <span [routerLink]="['grid']">Grid</span>
+        </mat-toolbar-row>
+        <mat-toolbar-row>
+          <span [routerLink]="['form']">Forms</span>
+        </mat-toolbar-row>
+        <mat-toolbar-row>
+          <span routerLink="graph">Graph</span>
+        </mat-toolbar-row>
+      </mat-toolbar>
+    </mat-sidenav>
+    <mat-sidenav-content class="bg-light">
+      <div class="col-10">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
