@@ -13,19 +13,21 @@ import {
 })
 export class FormCompComponent implements OnInit {
   myForm: FormGroup;
+  isSubmitted = false;
 
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
     this.myForm = this.fb.group({
-      name: ['Sammy', Validators.required],
+      name: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
       message: ['', [Validators.required, Validators.minLength(15)]],
-      gender: '',
+      gender: [null, Validators.required],
     });
   }
 
   onSubmit(form: FormGroup) {
+    this.isSubmitted = true;
     console.log('Valid?', form.valid); // true or false
     console.log('Name', form.value.name);
     console.log('Email', form.value.email);
@@ -34,10 +36,10 @@ export class FormCompComponent implements OnInit {
     console.log('form instances', this.myForm);
   }
 
-  getErrorMessage(form: FormGroup) {
-    if (this.myForm.get('email').errors?.required)
+  getErrorMessage() {
+    if (this.myForm.get('email')?.errors?.required)
       return 'You must enter a value';
 
-    return this.myForm.get('email').errors?.email ? 'Not a valid email' : '';
+    return this.myForm.get('email')?.errors?.email ? 'Not a valid email' : '';
   }
 }

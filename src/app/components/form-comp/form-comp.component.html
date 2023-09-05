@@ -1,37 +1,75 @@
 <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
   <div>
     <mat-form-field>
-      <mat-label>Name</mat-label>
-      <input matInput formControlName="name" />
+      <mat-label>Enter Name</mat-label>
+      <input matInput formControlName="name" required />
+      <mat-error
+        *ngIf="
+          (myForm.get('name')?.invalid && myForm.get('name')?.touched) ||
+          isSubmitted
+        "
+      >
+        {{ myForm.get("name")?.errors?.required ? "Name required" : "" }}
+        {{
+          myForm.get("name")?.errors?.minlength
+            ? "Name length should be minimum of" +
+              myForm.get("name")?.errors?.minlength?.requiredLength
+            : ""
+        }}
+      </mat-error>
     </mat-form-field>
   </div>
   <div>
     <mat-form-field>
-      <mat-label>Email</mat-label>
-      <input matInput formControlName="email" />
+      <mat-label>Enter Email</mat-label>
+      <input matInput formControlName="email" required />
       <mat-error
-        *ngIf="myForm.get('email').invalid && myForm.get('email').touched"
+        *ngIf="
+          (myForm.get('email')?.invalid && myForm.get('email')?.touched) ||
+          isSubmitted
+        "
         >{{ getErrorMessage() }}
       </mat-error>
     </mat-form-field>
   </div>
   <div>
     <mat-form-field>
-      <mat-label>Gender</mat-label>
-      <mat-select formControlName="gender">
+      <mat-label>Select Gender</mat-label>
+      <mat-select formControlName="gender" required>
+        <mat-option>--</mat-option>
         <mat-option value="male">Male</mat-option>
         <mat-option value="female">Fe Male</mat-option>
         <mat-option value="thirdgender">Third Gender</mat-option>
       </mat-select>
+      <mat-error
+        *ngIf="
+          (myForm.get('gender')?.invalid && myForm.get('gender')?.touched) ||
+          isSubmitted
+        "
+        >Select Gender
+      </mat-error>
     </mat-form-field>
   </div>
   <div>
     <mat-form-field>
-      <mat-label>Message</mat-label>
-      <textarea matInput formControlName="message"></textarea>
+      <mat-label>Enter Message</mat-label>
+      <textarea matInput formControlName="message" required></textarea>
+      <mat-error
+        *ngIf="
+          (myForm.get('message')?.invalid && myForm.get('message')?.touched) ||
+          isSubmitted
+        "
+        >{{ myForm.get("message")?.errors?.required ? "Name required" : "" }}
+        {{
+          myForm.get("message")?.errors?.minlength
+            ? "Message length should be minimum of" +
+              myForm.get("message")?.errors?.minlength?.requiredLength
+            : ""
+        }}
+      </mat-error>
     </mat-form-field>
   </div>
   <div>
-    <button mat-button color="primary">Save</button>
+    <button mat-raised-button color="primary">Save</button>
   </div>
 </form>
