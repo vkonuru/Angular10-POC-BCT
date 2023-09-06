@@ -1,1 +1,11 @@
-<p>Graph module</p>
+
+  <div id="chart" class="d-flex felx-column w-100" style="padding: 10px; position: relative;">
+    <apx-chart [series]="chartOptions.series"
+               [chart]="chartOptions.chart"
+               [xaxis]="chartOptions.xaxis"
+               [stroke]="chartOptions.stroke"
+               [tooltip] = "chartOptions.tooltip"
+               [dataLabels]="chartOptions.dataLabels"></apx-chart>
+  </div>
+
+

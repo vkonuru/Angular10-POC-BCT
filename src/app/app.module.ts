@@ -10,6 +10,8 @@ import { MaterialCompsModule } from './shared/material-comps/material-comps.modu
 import { TabsCompComponent } from './components/tabs-comp/tabs-comp.component';
 import { GridCompComponent } from './components/grid-comp/grid-comp.component';
 import { FormCompComponent } from './components/form-comp/form-comp.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { GraphCompComponent } from './components/graph-comp/graph-comp.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,7 @@ import { FormCompComponent } from './components/form-comp/form-comp.component';
     GridCompComponent,
     TabsCompComponent,
     FormCompComponent,
+    GraphCompComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +27,7 @@ import { FormCompComponent } from './components/form-comp/form-comp.component';
     MaterialCompsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    NgApexchartsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
