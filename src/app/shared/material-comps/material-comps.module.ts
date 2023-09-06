@@ -8,6 +8,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 const exportModulesList = [
   MatSidenavModule,
@@ -18,6 +19,7 @@ const exportModulesList = [
   MatInputModule,
   MatSelectModule,
   MatButtonModule,
+  MatCardModule,
 ];
 
 @NgModule({
